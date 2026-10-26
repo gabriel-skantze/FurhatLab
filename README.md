@@ -70,7 +70,7 @@ furhat.setFace(mask="adult", character="...")
 
 Try to define a sequence of questions you want the job interviewer to go through in the `systemPrompt` and interact with it to see how it handles your answers. Add any other instructions you think are needed for the character. 
 
-### Make the robot interruptible
+### Make the robot interruptable
 
 By default, you cannot interrupt the robot while it is speaking, but it is possible to change that. To do so, put this line after `furhat.startListening()`:
 
@@ -81,6 +81,22 @@ furhat.interruptable = true
 Try to see if you can now interrupt the robot while it is speaking. 
 
 **Note**: This only works if you are using a headset, or if your laptop has effective echo cancellation, otherwise the microphone will pick up what is being played on the speaker, and the robot will interrupt itself, or interruption might simply not work. If this happens, you should continue the lab without interruption enabled. 
+
+### Study the effects of facial expressions
+
+In the `Init` state, all automatic gestures (`blinking`, `turnTaking`, `microexpressions`, `neck`) are turned by by default through this command:
+
+```kotlin
+furhat.enableAutoGestures()
+```
+
+Try to see what happens if you turn them off, for example the automatic turn-taking gestures:
+
+```kotlin
+furhat.enableAutoGestures(turnTaking = false)
+```
+
+Discuss with your lab partner what difference it makes, and how these gestures can potentially help to facilitate turn-taking. 
 
 ### Make the opening more varied
 
