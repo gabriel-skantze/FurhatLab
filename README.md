@@ -12,6 +12,8 @@ You need to install two pieces of software before you can do the lab.
    * Download and install the Furhat SDK. **Note**: We are using the new 3.0.0 version of the Furhat SDK here, which might not have been publicly released at the time of the lab. Follow the instructions on Canvas for how to get this.
    <!--You need to sign up ("Get SDK") to be able to download and install the Furhat SDK. Follow [these instructions](https://docs.furhat.io/launcher/) for more details. -->
 
+Full documentation for how to use the Kotlin Skill API 3.0 [can be found here](https://docs.furhat.io/3-0-beta-nghbql/kotlin-skill-api/intro). 
+
 ### Run the SDK Launcher 
 
 Start the Furhat SDK Launcher and click "Launch Virtual Furhat". A virtual Furhat robot should appear in its own window. Click "Open web interface" to open the web interface (or visit "localhost:8080" in a web browser). You will need a password to log in, which is "admin" by default. From there, you can test the basic gestures, speaking and listening functionality in the Testing pane. This makes sure you can hear the robot and that it can hear you.  Keep in mind that the Furhat SDK only accepts microphones and speakers that were plugged in before you started the virtual Furhat, so if you plug in your headphones after the virtual Furhat head pops up, it won’t work until you restart the Furhat SDK.
