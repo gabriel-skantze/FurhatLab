@@ -86,7 +86,7 @@ Try to see if you can now interrupt the robot while it is speaking.
 
 ### Study the effects of facial expressions
 
-In the `Init` state, all automatic gestures (`blinking`, `turnTaking`, `microexpressions`, `neck`) are turned by by default through this command:
+In the `Init` state, all automatic gestures (`blinking`, `turnTaking`, `microexpressions`, `neck`) are turned on by default through this command:
 
 ```kotlin
 furhat.enableAutoGestures()
