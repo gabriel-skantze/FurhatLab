@@ -53,8 +53,6 @@ In the `Interaction` state, the robot will attend the closest user, start listen
 
 At the end of the user's turn, `onUserTurnEnd` will be triggered, which calls the LLM `generator` to generate a response for the robot to say. In this file, you can also see how the `generator` is defined. 
 
-You can read more about the SDK and how to program interactions in the [Furhat docs](https://docs.furhat.io/). We will only mention some of the functionality here, but you can find much more about how to implement your ideas in the docs.  
-
 Remember: if you change the code, you have to restart the skill for the changes to take effect. 
 
 ## Task 1: Build a robot job interviewer
