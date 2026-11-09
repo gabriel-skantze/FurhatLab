@@ -117,7 +117,7 @@ The only way to end the conversation now is for the user to leave the interactio
 ```kotlin
 val endConversation = tool(
     name="EndConversation",
-    description="End the conversation if the user indicates this"
+    description="End the conversation if the user indicates that they want to end the conversation, for example by saying goodbye"
 )
 ```
 
@@ -234,7 +234,7 @@ onUserTurnEnd {
 }
 ```
 
-Try to say a few things that are not specifically about the weather with and without this change, and see how it responds differently. 
+Try to say a few things that are not specifically about the weather with and without this change, and see how it responds differently. If it becomes too strict, and the tools are never triggered, try extending their descriptions so that it becomes clearer for the LLM what kind of questions the tools can be used for. 
 
 ## Task 3: Build a hotel receptionist robot
 
