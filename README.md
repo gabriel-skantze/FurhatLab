@@ -146,7 +146,7 @@ onUserTurnEnd {
 }
 ```
 
-Since the `endConversation` tool was registered with the current state, and `generateWithTools` is called with a reference (`this`) to the current state, it will check if any of the registered tools are relevant for what the user said. Otherwise, it will call the supplied handler, triggering `furhat.say(it)`, where `it` refers to the generated response. 
+Since the `endConversation` tool was registered with the current state, and `generateWithTools` is called with a reference (`this`) to the current state, it will check if any of the registered tools are relevant for what the user said. Otherwise, it will call the supplied handler, triggering `furhat.say(it)`, where `it` refers to the generated response. This serves as a fallback handler when no tool was called. 
 
 Now run the interaction and see if you can end the conversation by saying something like "Goodbye". To start the interaction again after this, the user would have to leave and come back.
 
@@ -222,15 +222,38 @@ Try asking the robot different types of weather-related questions, including fol
 
 You can also check the printouts that were added to the functions above. What is being sent to the model based on your questions, and how is the response from the API used to generate responses? Discuss this among yourselves and report to the TA. 
 
-## Task 3: Any idea you might have!
+### Make the fallback more strict
 
-Now (if time permits), you are free to implement any idea of your own choice. Some examples:
+It is now possible to ask the weather robot anything, including things that are not relevant to weather, and the fallback handler will generate a response anyway. Try changing the behavior to a more strict response when no tool was called:
 
-* Use tool calls to change the face and voice of the robot, or its LED lights, by telling it to do so
-* Define multiple states where the system prompt varies between states
-* Connect to an external API using tool calls for a robot talking about a specific domain:
-    * [TVmaze](https://www.tvmaze.com/) for TV shows
-    * [Open Library](https://openlibrary.org/developers) for books
-    * [Frankfurter](https://frankfurter.dev/) for currencies 
-    * [Nobel Prize](https://www.nobelprize.org/about/developer-zone-2) for facts about Nobel Prizes
+```kotlin
+onUserTurnEnd {
+    generator.generateWithTools(this) {
+        furhat.say("Sorry, I am not able to talk about that.")
+    }
+}
+```
+
+Try to say a few things that are not specifically about the weather with and without this change, and see how it responds differently. 
+
+## Task 3: Build a hotel receptionist robot
+
+Now build a hotel receptionist robot skill with the following specifications:
+
+* The user first meets a hotel receptionist 
+* The user has a reservation, which the receptionist doesn't find
+* The user complains and requests to talk to the manager
+* The robot switches into the manager persona, with a different face and voice
+* The manager can help the user to find a new room
+
+Implement this using **two different states** and **two different response generators**, one for the receptionist and one for the manager. The "find reservation" request should be handled with a **tool call**, but the result of that tool call can be hard-coded. 
+
+## Task 4: Any idea you might have!
+
+Now (if time permits), you are free to implement any idea of your own choice. For example, you could connect to an external API using tool calls for a robot talking about a specific domain:
+
+* [TVmaze](https://www.tvmaze.com/) for TV shows
+* [Open Library](https://openlibrary.org/developers) for books
+* [Frankfurter](https://frankfurter.dev/) for currencies 
+* [Nobel Prize](https://www.nobelprize.org/about/developer-zone-2) for facts about Nobel Prizes
 
