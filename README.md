@@ -220,6 +220,7 @@ Try asking the robot different types of weather-related questions, including fol
 
 You can also check the printouts that were added to the functions above. What is being sent to the model based on your questions, and how is the response from the API used to generate responses? Discuss this among yourselves and report to the TA. 
 
+<!--
 ### Make the fallback more strict
 
 It is now possible to ask the weather robot anything, including things that are not relevant to weather, and the fallback handler will generate a response anyway. Try changing the behavior to a more strict response when no tool was called:
@@ -233,6 +234,7 @@ onUserTurnEnd {
 ```
 
 Try to say a few things that are not specifically about the weather with and without this change, and see how it responds differently. If it becomes too strict, and the tools are never triggered, try extending their descriptions so that it becomes clearer for the LLM what kind of questions the tools can be used for. 
+-->
 
 ## Task 3: Build a hotel receptionist robot
 
